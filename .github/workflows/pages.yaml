@@ -52,7 +52,7 @@ jobs:
           go-version: '1.24'
       - name: Setup Pages
         id: pages
-        uses: actions/configure-pages@v4
+        uses: actions/configure-pages@v6
       - name: Setup Hugo
         run: |
           wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb \
@@ -70,7 +70,7 @@ jobs:
           echo "url2: ${{ env.APP_BASE_URL }}"
           echo "url3: ${{ steps.pages.outputs.base_url }}"
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: ./public
 
@@ -84,4 +84,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
